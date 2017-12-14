@@ -8,7 +8,7 @@ pipeline {
             echo 'Hola '
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             pwd()
             echo 'Second message'

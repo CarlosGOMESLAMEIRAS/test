@@ -1,23 +1,35 @@
 pipeline {
   agent any
   stages {
-    stage('stageTest1') {
+    stage('stageBranch2Test1') {
       parallel {
-        stage('stageTest1') {
-          steps {
-            sh 'ls -al ~'
-          }
-        }
         stage('stageBranch2Test1') {
           steps {
             echo 'Hola '
           }
         }
+        stage('') {
+          steps {
+            waitUntil() {
+              sleep 10
+            }
+            
+          }
+        }
       }
     }
     stage('endStageTest1') {
-      steps {
-        echo 'Fin des haricots'
+      parallel {
+        stage('endStageTest1') {
+          steps {
+            echo 'Fin des haricots'
+          }
+        }
+        stage('') {
+          steps {
+            input(message: 'Attente d\'une interaction', id: 'I1', ok: 'OK')
+          }
+        }
       }
     }
   }

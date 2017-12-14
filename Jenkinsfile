@@ -8,12 +8,10 @@ pipeline {
             echo 'Hola '
           }
         }
-        stage('error') {
+        stage('') {
           steps {
-            waitUntil() {
-              sleep 10
-            }
-            
+            pwd()
+            echo 'Second message'
           }
         }
       }

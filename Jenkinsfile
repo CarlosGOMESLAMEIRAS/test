@@ -8,7 +8,7 @@ pipeline {
             echo 'Hola '
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             waitUntil() {
               sleep 10
@@ -25,7 +25,7 @@ pipeline {
             echo 'Fin des haricots'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             input(message: 'Attente d\'une interaction', id: 'I1', ok: 'OK')
           }
